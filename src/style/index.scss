@@ -1,6 +1,7 @@
 @import "settings.scss";
 
 header {
+  position: relative;
   height: 100vh;
   background: url("./../../public/images/header_bg.jpg") center/cover;
 
@@ -9,11 +10,16 @@ header {
     font-size: 3.2rem;
     font-weight: 900;
     color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+    @media screen and (max-width: 991px) {
+      font-size: 3rem;
+    }
   }
 
   .nav_bar {
     z-index: 100;
-    color: white; //
+    color: white;
     top: 0;
     left: 0;
     width: 100%;
@@ -24,21 +30,95 @@ header {
       margin: 0 auto;
       width: 100%;
       height: 65px;
+      position: relative;
 
       .logo {
         flex: 3;
         font-weight: 800;
+        font-size: 1rem;
+        @media screen and (max-width: 1199px) {
+          padding-left: 20px;
+          font-size: 0.9rem;
+        }
       }
 
       .nav_links {
         width: 100%;
         flex: 7;
 
+        #links {
+          @media screen and (max-width: 991px) {
+            z-index: 200;
+            background: black;
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            position: absolute;
+            left: 0;
+            top: 65px;
+            flex-direction: column;
+            align-items: center;
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.075, 0.82, 0.565, 0.94);
+
+            &.open {
+              transform: translateX(0);
+              opacity: 1;
+            }
+          }
+        }
+
         .link {
           a {
             font-weight: 800;
           }
+          @media screen and (max-width: 991px) {
+            width: 100%;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.5rem;
+            padding: 10px 0;
+          }
         }
+
+        @media screen and (max-width: 1199px) {
+          padding-right: 20px;
+        }
+      }
+
+      .menu-burger {
+        cursor: pointer;
+        display: none;
+        padding-right: 20px;
+        img {
+          width: 35px;
+          height: 35px;
+        }
+
+        @media screen and (max-width: 991px) {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  .mouse {
+    width: 100%;
+    left: 0;
+    bottom: 50px;
+    display: flex;
+    justify-content: center;
+
+    img {
+      animation: alternate mouse 1.5s infinite;
+    }
+    @keyframes mouse {
+      0% {
+        transform: translateY(20px);
+      }
+      100% {
+        transform: translateY(0px);
       }
     }
   }
@@ -47,7 +127,10 @@ header {
 #about {
   .left {
     padding: 50px 0 50px 50px;
-    // padding: 30px 0;
+
+    @media screen and (max-width: 991px) {
+      padding: 20px;
+    }
   }
   p {
     font-size: 1.2rem;
@@ -55,6 +138,10 @@ header {
     font-weight: 500;
     text-align: justify;
     width: 90%;
+
+    @media screen and (max-width: 991px) {
+      width: 100%;
+    }
   }
 
   .right {
@@ -72,6 +159,10 @@ header {
   .section-title {
     padding-left: 50px;
     padding-top: 50px;
+
+    @media screen and (max-width: 991px) {
+      padding: 20px;
+    }
   }
   .container {
     > div {
@@ -83,7 +174,9 @@ header {
       height: 100%;
 
       @media screen and (max-width: 867px) {
-        grid-template-columns: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
       }
     }
 
@@ -94,6 +187,10 @@ header {
       max-height: 100px;
       margin: 20px;
 
+      @media screen and (max-width: 991px) {
+        margin: 10px;
+      }
+
       .circle {
         padding: 10px;
         width: 110px;
@@ -102,6 +199,11 @@ header {
         align-items: center;
         justify-content: center;
         margin-right: 20px;
+
+        @media screen and (max-width: 991px) {
+          width: 100px;
+          height: 100px;
+        }
 
         img {
           width: 100%;
@@ -122,6 +224,9 @@ header {
 .services {
   .section-title {
     padding-top: 50px;
+    @media screen and (max-width: 991px) {
+      padding-top: 20px;
+    }
   }
   .s-item {
     position: relative;
@@ -134,21 +239,38 @@ header {
       font-size: 2.5rem;
       font-weight: 900;
       color: $blue;
+
+      @media screen and (max-width: 991px) {
+        left: -5px;
+        font-size: 2rem;
+      }
     }
   }
   .left {
     padding-left: 60px;
+    @media screen and (max-width: 991px) {
+      padding-left: 20px;
+    }
 
     h4 {
       color: $blue;
       font-size: 1.2rem;
       margin: 10px 0;
       position: relative;
+      @media screen and (max-width: 991px) {
+        width: 100%;
+        margin: 10px 20px;
+      }
     }
     p {
       width: 90%;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       text-align: justify;
+
+      @media screen and (max-width: 991px) {
+        width: 100%;
+        padding: 0 20px;
+      }
     }
   }
   .right {
@@ -201,14 +323,26 @@ header {
 .ext-service {
   .section-title {
     padding-top: 50px;
+    @media screen and (max-width: 991px) {
+      padding: 0;
+      padding-top: 20px;
+    }
   }
   .left {
     margin-left: 50px;
+    @media screen and (max-width: 991px) {
+      margin-left: 20px;
+    }
     P {
       font-size: 1.2rem;
       width: 90%;
       text-align: justify;
       padding: 30px 0;
+      @media screen and (max-width: 991px) {
+        width: 100%;
+        padding: 20px 0;
+        padding-right: 20px;
+      }
     }
   }
   .right {
@@ -223,9 +357,16 @@ header {
   .section-title {
     padding-left: 50px;
     padding-top: 50px;
+    @media screen and (max-width: 991px) {
+      padding: 20px;
+    }
   }
   .container {
     padding: 30px;
+    @media screen and (max-width: 991px) {
+      width: 100%;
+      padding: 20px;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -237,15 +378,22 @@ header {
   .section-title {
     padding-left: 50px;
     padding-top: 50px;
+    @media screen and (max-width: 991px) {
+      padding: 20px;
+    }
   }
   .container {
     max-width: 920px;
     flex-wrap: wrap;
 
+    @media screen and (max-width: 991px) {
+      max-width: 90%;
+    }
+
     .techno {
       flex: 1px 0 20%;
-      width: 110px;
-      height: 110px;
+      width: 100px;
+      height: 100px;
       border: 1px solid rgba(84, 86, 88, 0.094);
       box-shadow: 1px 0 7px rgba(180, 180, 180, 0.26);
       margin: 10px;
@@ -254,6 +402,12 @@ header {
       padding: 10px;
       transition: all 200ms ease-in-out;
 
+      @media screen and (max-width: 991px) {
+        width: 85px;
+        height: 85px;
+        margin-left: 20px;
+      }
+
       &:hover {
         border: 1px solid rgba(84, 86, 88);
       }
@@ -261,9 +415,14 @@ header {
       .img-ctn {
         width: 100%;
         img {
-          width: 90px;
-          height: 90px;
+          width: 85px;
+          height: 85px;
           object-fit: contain;
+
+          @media screen and (max-width: 991px) {
+            width: 70px;
+            height: 70px;
+          }
         }
       }
     }
@@ -274,6 +433,9 @@ header {
   .section-title {
     padding-left: 50px;
     padding-top: 50px;
+    @media screen and (max-width: 991px) {
+      padding: 20px;
+    }
   }
   .container {
     flex-wrap: wrap;
@@ -288,6 +450,11 @@ header {
       display: flex;
       flex-direction: column;
 
+      @media screen and (max-width: 800px) {
+        min-width: 90%;
+        margin-top: 20px;
+      }
+
       .photo-name {
         display: grid;
         grid-template-columns: 30% 70%;
@@ -296,11 +463,19 @@ header {
         height: max-content;
         margin-bottom: 5px;
 
+        @media screen and (max-width: 800px) {
+          display: flex;
+          justify-content: start;
+        }
+
         .photo-ctn {
           width: 90px;
           height: 90px;
           border-radius: 360px;
           overflow: hidden;
+          @media screen and (max-width: 800px) {
+            margin-right: 30px;
+          }
 
           img {
             width: 100%;
@@ -391,7 +566,6 @@ footer {
       padding: 10px;
       display: grid;
       grid-template-rows: 25% 75%;
-      // background-color: rgb(194, 192, 192);
 
       p {
         display: flex;

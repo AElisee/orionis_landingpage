@@ -1,0 +1,9 @@
+    // style={{
+            //   transform: `${
+            //     window.innerWidth < 991 && openNav
+            //       ? "translateX(0)"
+            //       : "translateX(-100%)"
+            //   }`,
+            //   opacity: `${openNav ? "1" : "0"}`,
+            //   transition: "all 1s cubic-bezier(0.075, 0.82, 0.565, 0.94)",
+            // }}

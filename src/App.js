@@ -9,10 +9,8 @@ import { technos } from "./data/technos";
 
 const App = () => {
   useEffect(() => {
-    AOS.init(); // Initialise AOS
+    AOS.init();
   }, []);
-
-  console.log(teamMemeber);
 
   return (
     <div className="home">
@@ -22,6 +20,9 @@ const App = () => {
           <h2 className="text-uppercase text-center">
             une autre vision - une autre solution
           </h2>
+        </div>
+        <div className="mouse absolute">
+          <img src="./images/mouse.svg" alt="" />
         </div>
       </header>
       <About />
@@ -101,7 +102,7 @@ const App = () => {
           <div className="section-title">
             <h3 data-aos="zoom-out-right">EXTERNALISATIONS DES SERVICES</h3>
           </div>
-          <p>
+          <p data-aos="fade-left" data-aos-duration="2000">
             Nous excellons dans la constitution d'une équipe de développement en
             fonction de vos exigences techniques. Notre gestion des ressources
             humaines recherchera et embauchera les meilleurs programmeurs et
@@ -110,7 +111,11 @@ const App = () => {
             pour exécuter le projet efficacement.
           </p>
         </div>
-        <div className="right flex-1"></div>
+        <div
+          className="right flex-1"
+          data-aos="flip-left"
+          data-aos-duration="1000"
+        ></div>
       </section>
 
       <section className="work-process">
@@ -127,7 +132,12 @@ const App = () => {
         </div>
         <div className="container  flex">
           {technos.map((techno, index) => (
-            <div className="techno" key={index}>
+            <div
+              className="techno"
+              key={index}
+              data-aos="fade-left"
+              data-aos-duration="500"
+            >
               <div className="img-ctn flex flex-aic flex-jcc">
                 <img src={techno?.img} alt="" />
               </div>
@@ -142,8 +152,14 @@ const App = () => {
         </div>
         <div className="container flex">
           {teamMemeber.map((member, index) => (
-            <div key={index} className="member  " data-aos="flip-left">
-              <div className="photo-name">
+            <div
+              key={index}
+              className="member  "
+              data-aos="flip-left"
+              data-aos-easing="ease-out-cubic"
+              data-aos-duration="1000"
+            >
+              <div className="photo-name ">
                 <div className="photo-ctn flex flex-aic flex-jcc">
                   <img src={member.photo} alt="" />
                 </div>
@@ -173,7 +189,7 @@ const App = () => {
 
               <p>
                 Capital : 600.000.000 FCFA. RCCM : CI-ABJ-03-2019-B14-09769 • CC
-                : 1926349 G • Tél : (+225) 2721519062 • BP 2709 ABJ 06
+                : 1926349 G • Tél : (+225) 27 21 51 9062 • BP 2709 ABJ 06
               </p>
               <p>www.orionisci.com • Info@orionisci.com</p>
             </div>
@@ -191,7 +207,7 @@ const App = () => {
                 <span className="icon">
                   <img src="./images/phone.svg" alt="" />
                 </span>
-                <span>(+225) 2721519062</span>
+                <span>(+225) 27 21 51 9062</span>
               </div>
               <div>
                 <span className="icon">

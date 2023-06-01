@@ -77,7 +77,11 @@ const Service = () => {
             </div>
           </div>
         </div>
-        <div className="right flex-1"></div>
+        <div
+          className="right flex-1"
+          data-aos="flip-left"
+          data-aos-duration="1000"
+        ></div>
       </section>
       <section className="services flex">
         <div className="left flex-1">
